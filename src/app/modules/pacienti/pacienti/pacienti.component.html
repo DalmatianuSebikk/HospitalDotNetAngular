@@ -1,0 +1,87 @@
+
+
+
+<!--<p>pacienti works!</p>-->
+
+<!--<app-boli-->
+<!--  [numeleBolii]="numeBoala"-->
+<!--  (confirmareBoala)="receiveMessage($event)"-->
+<!--&gt;</app-boli>-->
+
+<div class="thicc">
+  <p>Logged user: {{loggedUser.email}}</p>
+  <button mat-raised-button (click)= "logout()">
+    Logout
+  </button>
+  <div class="demo-button-container">
+<!--    <button mat-raised-button (click)="addData()" class="demo-button">-->
+<!--      Add data-->
+<!--    </button>-->
+<!--    <button-->
+<!--      mat-raised-button-->
+<!--      [disabled]="!dataToDisplay.length"-->
+<!--      (click)="removeData()"-->
+<!--      class="demo-button">-->
+<!--      Remove data-->
+<!--    </button>-->
+  </div>
+  <h1 class="title">
+    Pacienti:
+  </h1>
+    <table mat-table [dataSource]="pacienti" class="mat-elevation-z8 demo-table">
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="numePacient">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{element.numePacient}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="CNP">
+        <th mat-header-cell *matHeaderCellDef>CNP</th>
+        <td mat-cell *matCellDef="let element">{{element.cnp}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="numarDeTelefon">
+        <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+        <td mat-cell *matCellDef="let element">{{element.numarDeTelefon | phone}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Delete</th>
+        <td mat-cell *matCellDef="let element" (click)="deletePacient(element.id)">
+          <mat-icon>
+            delete
+          </mat-icon>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef>Edit</th>
+        <td mat-cell *matCellDef="let element" (click)="editPacient(element)">
+          <mat-icon>
+            edit
+          </mat-icon>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="profile">
+        <th mat-header-cell *matHeaderCellDef>Profile</th>
+        <td mat-cell *matCellDef="let element" (click)="goToPacientProfile(element.id)">
+          <mat-icon>
+            person
+          </mat-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  <button mat-raised-button (click)="addNewPacient()" class="add-button">
+    Add Pacient
+  </button>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="title">
+    {{title}}
+  </h1>
+
+  <form [formGroup]="pacientForm" class="form">
+    <mat-form-field appearance="outline">
+      <mat-label>
+        Name
+      </mat-label>
+      <input matInput placeholder="NumePacient" formControlName="numePacient">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>
+        CNP
+      </mat-label>
+      <input matInput placeholder="CNP" formControlName="cnp">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>
+        Numar de telefon
+      </mat-label>
+      <input matInput placeholder="NumarDeTelefon" formControlName="numarDeTelefon">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>
+        Codul bolii pacientului (ID)
+      </mat-label>
+      <input matInput placeholder="codBoala" formControlName="boalaId">
+    </mat-form-field>
+
+    <button mat-raised-button (click)="data?.pacienti ? editPacient() : addPacient()" appHoverBtn>
+      Save
+    </button>
+
+  </form>
+</div>
